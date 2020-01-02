@@ -263,22 +263,20 @@ void ArrayShifts(int**& originalArr, int& sizeRow, int& sizeCol, int side, int s
 void  TransposeMatrix(int**& originalArr, int& sizeRow, int& sizeCol)
 {
     int temp = 0;
-    int x = 0, y = 0;
+    int x = 0;
 
     for (int i = 0; i < sizeRow; ++i)
     {
         for (int j = 0; j < sizeCol; j++)
         {
             temp = originalArr[i][j];
-            originalArr[i][j] = originalArr[i + x][j - y];
-            originalArr[i + x][j - y] = temp;
+            originalArr[i][j] = originalArr[i + x][j - x];
+            originalArr[i + x][j - x] = temp;
             if (j >= i)
             {
-                y++;
                 x++;
             }
         }
         x = 0;
-        y = 0;
     }
 }
